@@ -4,7 +4,6 @@
   font-style: normal;
   font-weight: 400;
 }
-
 @font-face{
   font-family: charter;
   src: url('../fonts/charter-italic.otf');
@@ -26,6 +25,7 @@
   font-weight: bold;
 }
 
+
 :root {
   font-size: 18px;  /*invalida al html, tiene mayor peso*/
   --gray30:#212121;
@@ -41,6 +41,7 @@ html {
 
 body {
   color: var(--gray30);
+  font-family: charter;
 }
 
 a {
