@@ -1,0 +1,327 @@
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-regular.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-italic.otf");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-bold.otf");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: charter;
+  src: url("../fonts//charter-bold-italic.otf");
+  font-style: italic;
+  font-weight: bold;
+}
+
+:root {
+  font-size: 18px; /*invalida al html, tiene mayor peso*/
+  --white30: white;
+  --white20: #a5a3a5;
+  --white10: #3a3539;
+}
+
+/*
+html {
+ font-size: 16px;  // este valor viene por default en el navegador 
+}
+*/
+
+body {
+  color: var(--white30);
+  font-family: "Nunito", sans-serif;
+  background: #251f24;
+  margin: 0;
+  /* font-family: charter; */
+}
+
+a {
+  color: var(--white30);
+}
+
+p {
+  color: var(--white20);
+}
+
+header {
+  font-size: 14px;
+  color: var(--white30);
+  margin-block-start: 20px;
+  /* position: absolute;  //quito por el @media  */
+  /* inset-block-start: 0;  /top/  //quito por el @media  */
+  /* inset-block-end: ; bottom */
+  /* inset-inline-start: -208px;  / left  /  //quito por el @media */
+  /* inset-inline-end: ; right  */
+  /* inline-size: 188px;  //quito por el @media */
+}
+
+.header-content {
+  padding-inline: 20px;
+  /*
+  position: relative;  //quito por el @media
+  inset-block-start: 65px;  //quito por el @media
+  */
+}
+
+/* .header {  */
+/*
+  position: sticky;   //quito por el @media
+  inset-block-start: -45px;  //quito por el @media
+  */
+/*
+inset: 50px;
+inset-inline:50px;
+inset-block:50px;
+block-size:500px;
+inline-size:500px;   
+son para crear ventanas modales
+*/
+/* } */
+
+header a {
+  color: var(--white20);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--white30);
+}
+
+header li {
+  color: var(--white20);
+  margin-block-end: 16px;
+}
+
+nav details summary {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 40px;
+
+  /* font-size: 3.75em; 60/16=3.75 */
+  margin-block-start: 20px;
+  margin-block-end: 16px;
+}
+
+h2 {
+  font-size: 2em;
+  margin-block: 40px;
+}
+
+h3 {
+  font-size: 1.5em; /*tiene 24px*/
+  /*los párrafos y el li, tienen 16px, no es necesario cambiar porq es igual al que viene con el html*/
+  font-weight: 600;
+  margin-block: 16px;
+}
+
+hr {
+  margin-block: 40px;
+  border-color: rgba(97, 97, 97, 0.2);
+}
+
+pre {
+  background: var(--white10);
+  padding: 40px;
+  line-height: 24px;
+  overflow: auto;
+  border-radius: 8px;
+  border-inline-start: 5px solid wheat;
+  border-block-end: 20px solid red;
+  border: 10px solid #5551ff;
+  box-shadow: -10px 10px 0 0 #abaaf6; /*eje x,eje y, difuminado, spreed (cuanto se expande), color */
+  margin-block-end: 30px;
+  border-end-start-radius: 60px;
+}
+
+blockquote {
+  background: var(--white10);
+  margin-block-start: 80px;
+  margin-block-end: 63px;
+  border-radius: 8px;
+  padding: 24px;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+blockquote p {
+  color: var(--white30);
+}
+.hero {
+  /* background-image: linear-gradient(to top, red, blue, transparent), url(../images/pattern.png); */
+  /* background-image: linear-gradient(to top, red, transparent), url(../images/pattern.png); */
+  background: linear-gradient(96.07deg, #314755 30.63%, #26a0da 102.18%);
+  /*background-repeat: no-repeat;
+ background-position: center;
+ background-position: left-top; */
+  block-size: 50px;
+}
+
+.section-content img {
+  margin-block-start: 40px;
+  display: block; /*así las margenes colapsan y toma el mayor margin*/
+}
+
+.dom img {
+  display: flex;
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.section-content {
+  counter-reset: titleList; /*por prevencion lo reseteo*/
+}
+
+.section-content h3 {
+  counter-increment: titleList;
+}
+
+.section-content h3::before {
+  content: counter(titleList) ". "; /*por defecto esta en decimal*/
+  /* content: counter(titleList, decimal); */
+  /* content: counter(titleList, upper-roman); */
+  /* content: "-" counter(titleList, decimal) ".";  //tambien puedo agregar puntuación, etc. */
+}
+/* https://www.w3.org/TR/CSS2/generate.html#counter-styles  */
+
+/*
+.section-content h3::after {
+  content: "";  //siempre colocar en blanco antes de usar este seudoelemento //
+  width: 32px;
+  height: 4px;
+  background: var(--white30);
+  display: inline-block;  //por defecto el H3 esta en inline,cambiarlo para q tome el background //
+}
+*/
+
+/* ::selection {
+  background: lightcoral;
+}  //cambia el color al seleccionar el texto*/
+
+.wrapper {
+  max-inline-size: 902px;
+  margin: auto;
+}
+.main-content {
+  padding-inline: 16px;
+}
+
+ul li {
+  margin-bottom: 16px;
+  color: var(--white20);
+}
+
+/*
+.section-content ol li {
+  line-height: 24px;
+}
+*/
+
+ol li {
+  line-height: 24px;
+  color: var(--white20);
+}
+
+/*
+.slider {
+  border: 1px solid red;
+}
+*/
+
+.slider-container {
+  /* block-size: 100px;  */
+  display: block;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  white-space: nowrap;
+  font-size: 0; /*para quitar como una linea negra entre los videos al desplazarse*/
+}
+
+.video {
+  margin: 0;
+  /* border: 1px solid blue;  */
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
+
+.slider-bullet-list {
+  /* border: 1px solid yellow; */
+  text-align: center;
+  margin-block-start: 10px;
+}
+.slider-bullet {
+  display: inline-block;
+  inline-size: 15px;
+  block-size: 15px;
+  background: white;
+  border-radius: 50%;
+}
+
+.form input {
+  inline-size: 100%;
+  border: 1px solid var(--white30);
+  background: #251f24;
+  box-sizing: border-box;
+  border-radius: 8px;
+  padding-inline: 16px;
+  padding-block: 12px;
+  color: var(--white30);
+  font-size: 16px;
+  display: block;
+  margin-block-end: 24px;
+}
+
+.form input[type="submit"] {
+  background: #157efb;
+  border: none;
+}
+
+.form input::-webkit-input-placeholder {
+  color: var(--white20);
+}
+
+@media screen and (min-width: 1268px) {
+  header {
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: -208px;
+    inline-size: 188px;
+  }
+
+  .header-content {
+    position: relative;
+    inset-block-start: 65px;
+    padding-inline: 0;
+  }
+
+  .header {
+    position: sticky;
+    inset-block-start: -45px;
+  }
+  .hero {
+    block-size: 350px;
+  }
+  h1 {
+    font-size: 60px;
+    margin-block-start: 64px;
+  }
+  .section-content img {
+    margin-block-start: 40px;
+    display: block; /*así las margenes colapsan y toma el mayor margin*/
+  }
+}

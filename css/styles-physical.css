@@ -1,0 +1,247 @@
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-regular.otf");
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-italic.otf");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: charter;
+  src: url("../fonts/charter-bold.otf");
+  font-style: normal;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: charter;
+  src: url("../fonts//charter-bold-italic.otf");
+  font-style: italic;
+  font-weight: bold;
+}
+
+:root {
+  font-size: 16px; /*invalida al html, tiene mayor peso*/
+  --gray30: #212121;
+  --gray20: #212429;
+  --gray10: #616161;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+html {
+ font-size: 16px;  // este valor viene por default en el navegador 
+}
+*/
+
+body {
+  color: var(--gray30);
+  font-family: "Roboto", sans-serif;
+  /* font-family: charter; */
+  margin: 0;
+}
+
+a {
+  color: var(--gray30);
+}
+
+header {
+  font-size: 14px;
+  color: var(--gray10);
+  width: 188px;
+  position: absolute;
+  top: 64px;
+  left: -232px; /*sumo el width con el espacio de separacion de acuerdo al figma*/
+  z-index: 1;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+}
+
+header li {
+  margin-bottom: 16px;
+}
+header a {
+  color: var(--gray10);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--gray30);
+}
+
+nav details summary {
+  font-weight: bold;
+  line-height: 24px;
+}
+
+h1 {
+  font-size: 60px;
+  /* font-size: 3.75em; 60/16=3.75 */
+  /* margin-top: 64px;
+  margin-bottom: 16px; */
+  margin: 64px 0 16px 0;
+  font-weight: normal;
+}
+
+/* 
+h1 + p {
+  margin-bottom: 64px;
+} solo afectaría al primer hermano, no a los demás
+*/
+/* 
+h1 ~ p {
+  //afecta a todos los hermanos continuos p, en este caso es indiferente usar uno ú otro
+}  
+*/
+
+h2 {
+  font-size: 2em;
+  margin: 64px 0 40px 0;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.5em; /*tiene 24px*/
+  /*los párrafos y el li, tienen 16px, no es necesario cambiar porq es igual al que viene con el html*/
+  margin-top: 16px;
+  margin-bottom: 24px;
+  font-weight: normal;
+  /* position: sticky; //con esta posicion, al agregar el background white, crea un efecto donde no se encima un elemento sobre el otro
+  background: white;
+  top: 0; //siempre acompañar un top 0, para q se quede desde la parte superior
+  */
+}
+
+.header-content {
+  position: relative;
+}
+
+.wrapper {
+  margin: auto;
+  width: 902px;
+}
+
+/* .main-content {
+  padding: 20px;
+}
+*/
+hr {
+  margin: 64px 0;
+}
+
+pre {
+  background: #fec62e;
+  line-height: 24px;
+  font-family: "roboto";
+  padding: 40px;
+  overflow: auto;
+}
+
+blockquote {
+  margin: 32px 0;
+  padding-left: 16px;
+  line-height: 32px;
+  font-size: 24px;
+  border-left: 4px solid var(--gray30);
+}
+
+blockquote span::before {
+  content: "-";
+}
+
+blockquote span {
+  color: var(--gray10);
+}
+
+.hero {
+  /* background-image: linear-gradient(to top, red, blue, transparent), url(../images/pattern.png); */
+  /* background-image: linear-gradient(to top, red, transparent), url(../images/pattern.png); */
+  background-image: linear-gradient(
+      to top,
+      rgb(255, 255, 255, 0.3),
+      transparent
+    ),
+    url(../images/pattern.png);
+  background-size: 6.6%; /*disminuye el tamaño del diseño patrón y aumenta la cantidad de dibujos*/
+  /*background-repeat: no-repeat;
+ background-position: center;
+ background-position: left-top; */
+  height: 350px;
+}
+
+.section-content {
+  counter-reset: titleList; /*por prevencion lo reseteo*/
+  margin-top: 164px;
+}
+
+.section-content:first-of-type {
+  margin: 0;
+}
+
+.section-content h3 {
+  counter-increment: titleList;
+  padding-bottom: 8px;
+}
+
+.section-content h3::before {
+  content: counter(titleList) ". "; /*por defecto esta en decimal*/
+  /* content: counter(titleList, decimal); */
+  /* content: counter(titleList, upper-roman); */
+  /* content: "-" counter(titleList, decimal) ".";  //tambien puedo agregar puntuación, etc. */
+}
+/* https://www.w3.org/TR/CSS2/generate.html#counter-styles  */
+
+.section-content h3::after {
+  content: " "; /*siempre colocar en blanco antes de usar este seudoelemento*/
+  width: 80px;
+  height: 4px;
+  background: var(--gray30);
+  display: block; /*por defecto el H3 esta en inline,cambiarlo para q tome el background*/
+  position: relative;
+  left: 0;
+  bottom: 0;
+}
+
+/* ::selection {
+  background: lightcoral;
+}  //cambia el color al seleccionar el texto*/
+
+.section-content img {
+  margin-top: 40px;
+}
+
+.section-content + hr {
+  display: none;
+}
+
+/*
+.section-content ul li {
+  margin-bottom: 16px;
+}
+*/
+
+ul li {
+  margin-bottom: 16px;
+}
+
+/*
+.section-content ol li {
+  line-height: 24px;
+}
+*/
+
+p,
+ol li {
+  line-height: 24px;
+}
